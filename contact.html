@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact | DnA Financial</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="DnA Financial logo"/>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html" class="nav-btn">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <p class="eyebrow">Contact</p>
+            <h1>Request a free initial review.</h1>
+            <p>Use the form below to share a few details about your bookkeeping needs.</p>
+        </section>
+
+        <section class="section contact-layout">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p><strong>Email:</strong> hello@dnafinancial.com</p>
+                <p><strong>Phone:</strong> (000) 000-0000</p>
+                <p><strong>Service Area:</strong> Remote bookkeeping support for small businesses.</p>
+            </div>
+
+            <form class="contact-form">
+                <label>
+                    Full Name
+                    <input type="text" name="name" placeholder="Your name"/>
+                </label>
+
+                <label>
+                    Business Name
+                    <input type="text" name="business" placeholder="Business name"/>
+                </label>
+
+                <label>
+                    Email Address
+                    <input type="email" name="email" placeholder="you@example.com"/>
+                </label>
+
+                <label>
+                    Service Needed
+                    <select name="service">
+                        <option value="">Select one</option>
+                        <option>Monthly Bookkeeping</option>
+                        <option>Catch-Up Bookkeeping</option>
+                        <option>Financial Record Cleanup</option>
+                        <option>Not Sure</option>
+                    </select>
+                </label>
+
+                <label>
+                    Message
+                    <textarea name="message" rows="6" placeholder="Tell us about your bookkeeping needs."></textarea>
+                </label>
+
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <img src="logo.png" alt="DnA Financial logo" class="footer-logo" />
+        <p>&copy; 2026 DnA Financial. All rights reserved.</p>
+        <p>Bookkeeping and financial record organization services only. Tax, legal, CPA, and financial advisory services are not provided.</p>
+    </footer>
+</body>
+</html>
