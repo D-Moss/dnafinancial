@@ -317,46 +317,34 @@ a {
 .about-section {
     padding: 80px 20px;
     background: var(--light-blue);
+}
+
+.about-inner {
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.about-section h2 {
-    margin: 0 0 14px;
-    color: var(--navy);
-    font-size: clamp(2rem, 3vw, 3rem);
-    line-height: 1.15;
-}
-
-.about-section p {
-    color: var(--muted);
-    font-size: 1.05rem;
-}
-
-.watermark-section {
-    position: relative;
-    overflow: hidden;
-}
-
-.section-watermark {
-    position: absolute;
-    right: 5%;
-    bottom: -35px;
-    width: 280px;
-    opacity: 0.08;
-    pointer-events: none;
-}
-
-.about-section > * {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
     max-width: 1180px;
 }
 
-.watermark-section > div,
-.watermark-section > p {
-    position: relative;
-    z-index: 1;
+.about-card {
+    padding: 34px;
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(11, 42, 74, 0.06);
+}
+
+.about-card h2 {
+    margin: 0 0 14px;
+    color: var(--navy);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.15;
+}
+
+.about-card p {
+    color: var(--muted);
+    font-size: 1.05rem;
 }
 
 /* CTA SECTION */
@@ -380,7 +368,7 @@ a {
 /* FOOTER */
 .footer {
     padding: 30px 20px;
-    background: #061a2f;
+    background: #030e1c;
     color: var(--silver);
     text-align: center;
     font-size: 0.9rem;
@@ -388,13 +376,17 @@ a {
 
 .footer-logo {
     margin-bottom: 14px;
-    width: 140px;
-    max-height: 70px;
+    width: 180px;
+    max-height: auto;
     object-fit: contain;
 }
 
 .footer p {
     margin: 6px 0;
+}
+
+.footer-note {
+    font-size: 0.75rem;
 }
 
 /* SERVICE PAGE */
@@ -444,7 +436,6 @@ a {
 }
 
 /* FAQ PAGE */
-/*faq section*/
 .faq-section {
     max-width: 900px;
 }
@@ -485,7 +476,6 @@ a {
 }
 
 /* CONTACT SECTION */
-/*contact information*/
 .contact-layout {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
@@ -595,5 +585,11 @@ a {
     }
     .btn {
         text-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .about-inner {
+        grid-template-columns: 1fr;
     }
 }
