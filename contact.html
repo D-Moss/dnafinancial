@@ -37,7 +37,9 @@
                 <p><strong>Service Area:</strong> Remote bookkeeping support for small businesses.</p>
             </div>
 
-            <form class="contact-form">
+            <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact">
+
                 <label>
                     Full Name
                     <input type="text" name="name" placeholder="Your name"/>
@@ -50,7 +52,12 @@
 
                 <label>
                     Email Address
-                    <input type="email" name="email" placeholder="info@dnafinancial.org"/>
+                    <input type="email" name="email" placeholder="youremail@abc.com" required />
+                </label>
+
+                <label>
+                    Phone Number
+                    <input type="tel" name="phone" placeholder="123-456-7890">
                 </label>
 
                 <label>
@@ -66,7 +73,7 @@
 
                 <label>
                     Message
-                    <textarea name="message" rows="6" placeholder="Tell us about your bookkeeping needs."></textarea>
+                    <textarea name="message" rows="6" placeholder="Tell us about your bookkeeping needs." required></textarea>
                 </label>
 
                 <button type="submit" class="btn btn-primary">Submit Request</button>
