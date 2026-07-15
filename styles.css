@@ -113,10 +113,10 @@ a {
 }
 
 .hero-buttons {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 30px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .btn {
@@ -385,6 +385,31 @@ a {
     margin: 6px 0;
 }
 
+.footer-legal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 14px;
+}
+
+.footer-legal a {
+    color: inherit;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer-legal a:hover,
+.footer-legal a:focus {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.footer-legal span {
+    opacity: 0.5;
+}
+
 .footer-note {
     font-size: 0.75rem;
 }
@@ -591,5 +616,16 @@ a {
 @media (max-width: 900px) {
     .about-inner {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer-legal {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .footer-legal span {
+        display: none;
     }
 }
