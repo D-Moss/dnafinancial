@@ -1,43 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <meta
+        name="description"
+        content="Monthly bookkeeping, catch-up bookkeeping, and financial record cleanup services from DnA Financial."
+    >
+
     <title>Services | DnA Financial</title>
-    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
 </head>
+
 <body>
+    <!-- HEADER -->
     <header class="site-header">
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Main navigation">
             <a href="index.html" class="logo">
-                <img src="https://i.postimg.cc/cLbnX7Yf/white-logo.png" alt="white logo" />
+                <img
+                    src="https://i.postimg.cc/cLbnX7Yf/white-logo.png"
+                    alt="DnA Financial"
+                >
             </a>
 
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contact.html" class="nav-btn">Contact</a></li>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="services.html" aria-current="page">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="faq.html">FAQ</a>
+                </li>
+
+                <li>
+                    <a href="contact.html" class="nav-btn">
+                        Contact
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- PAGE HERO -->
         <section class="page-hero">
             <p class="eyebrow">Services</p>
-            <h1>Bookkeeping services designed to keep your records organized.</h1>
+
+            <h1>
+                Bookkeeping services designed to keep your records organized.
+            </h1>
+
             <p>
-                DnA Financial provides monthly bookkeeping, catch-up bookkeeping, and financial record cleanup for small businesses.
+                DnA Financial provides monthly bookkeeping, catch-up
+                bookkeeping, and financial record cleanup for small businesses.
             </p>
         </section>
 
-        <section class="section">
+        <!-- SERVICE CARDS -->
+        <section
+            class="services-section"
+            aria-label="Bookkeeping services"
+        >
             <div class="service-list">
                 <article class="service-block">
                     <h2>Monthly Bookkeeping</h2>
+
                     <p>
-                        Monthly bookkeeping helps keep your financial records organized throughout the year.
+                        Keep your financial records organized throughout
+                        the year.
                     </p>
+
                     <ul>
                         <li>Review bank and credit card activity</li>
                         <li>Categorize income and expenses</li>
@@ -49,9 +92,12 @@
 
                 <article class="service-block">
                     <h2>Catch-Up Bookkeeping</h2>
+
                     <p>
-                        Catch-up bookkeeping is for businesses that are behind and need past months organized.
+                        Get past months organized when your bookkeeping
+                        has fallen behind.
                     </p>
+
                     <ul>
                         <li>Review prior statements</li>
                         <li>Organize historical transactions</li>
@@ -63,9 +109,12 @@
 
                 <article class="service-block">
                     <h2>Financial Record Cleanup</h2>
+
                     <p>
-                        Cleanup services help organize existing spreadsheets, records, and reports that need correction or structure.
+                        Correct and organize spreadsheets, records, and
+                        reports that need a clearer structure.
                     </p>
+
                     <ul>
                         <li>Review current records</li>
                         <li>Correct inconsistent categories</li>
@@ -77,29 +126,262 @@
             </div>
         </section>
 
+        <!-- SAMPLE REPORTS SECTION -->
+        <section
+            class="dna-report-section"
+            aria-labelledby="dna-report-heading"
+        >
+            <div class="dna-report-container">
+                <!-- LEFT COLUMN -->
+                <div class="dna-report-content">
+                    <p class="dna-report-eyebrow">
+                        Here’s What You Get
+                    </p>
+
+                    <h2 id="dna-report-heading">
+                        Clear reports. Real insights. Every month.
+                    </h2>
+
+                    <p class="dna-report-intro">
+                        We provide organized, easy-to-understand bookkeeping
+                        reports so you can see where your business stands and
+                        make informed decisions.
+                    </p>
+
+                    <div class="dna-report-sample-heading">
+                        <div
+                            class="dna-report-icon"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 24 24">
+                                <path d="M6 2h8l4 4v16H6V2Z"></path>
+                                <path d="M14 2v5h5"></path>
+                                <path d="M9 13h6"></path>
+                                <path d="M9 17h6"></path>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <h3>Sample Financial Reports</h3>
+
+                            <p>
+                                Explore examples of the reports included
+                                with monthly bookkeeping.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- REPORT BUTTONS -->
+                    <div
+                        class="dna-report-tabs"
+                        role="tablist"
+                        aria-label="Sample financial reports"
+                    >
+                        <button
+                            class="dna-report-tab active"
+                            type="button"
+                            role="tab"
+                            aria-selected="true"
+                            data-image="https://i.postimg.cc/YC2YMqq3/dashboard.png"
+                            data-alt="Sample DnA Financial bookkeeping dashboard"
+                            data-caption="Dashboard"
+                        >
+                            View Dashboard
+                        </button>
+
+                        <button
+                            class="dna-report-tab"
+                            type="button"
+                            role="tab"
+                            aria-selected="false"
+                            data-image="https://i.postimg.cc/wjxLgTT2/income-expense.png"
+                            data-alt="Sample DnA Financial income and expense summary"
+                            data-caption="Income &amp; Expense Summary"
+                        >
+                            View Income &amp; Expenses
+                        </button>
+
+                        <button
+                            class="dna-report-tab"
+                            type="button"
+                            role="tab"
+                            aria-selected="false"
+                            data-image="https://i.postimg.cc/8CM1YLQd/monthly-summary.png"
+                            data-alt="Sample DnA Financial monthly summary"
+                            data-caption="Monthly Summary"
+                        >
+                            View Monthly Summary
+                        </button>
+                    </div>
+
+                    <p class="dna-report-disclaimer">
+                        Sample reports use fictional business information
+                        and are provided for demonstration purposes only.
+                    </p>
+
+                    <div class="dna-report-includes">
+                        <h3>
+                            Your monthly bookkeeping reports include:
+                        </h3>
+
+                        <ul>
+                            <li>
+                                Dashboard with a clear financial overview
+                            </li>
+
+                            <li>
+                                Income and expense summary
+                            </li>
+
+                            <li>
+                                Monthly and year-to-date totals
+                            </li>
+
+                            <li>
+                                Detailed transaction categorization
+                            </li>
+
+                            <li>
+                                Outstanding questions, when applicable
+                            </li>
+
+                            <li>
+                                Organized records ready for tax time
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="dna-report-preview-column">
+                    <p
+                        class="dna-report-preview-label"
+                        aria-live="polite"
+                    >
+                        Currently viewing:
+                        <strong id="dna-report-caption">
+                            Dashboard
+                        </strong>
+                    </p>
+
+                    <button
+                        class="dna-report-preview"
+                        id="dna-report-preview"
+                        type="button"
+                        aria-label="Open a larger preview of the Dashboard"
+                    >
+                        <img
+                            id="dna-report-image"
+                            src="https://i.postimg.cc/YC2YMqq3/dashboard.png"
+                            alt="Sample DnA Financial bookkeeping dashboard"
+                        >
+
+                        <span class="dna-report-zoom">
+                            Click to enlarge
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- REPORT MODAL -->
+        <div
+            class="dna-report-modal"
+            id="dna-report-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dna-modal-title"
+            hidden
+        >
+            <button
+                class="dna-report-modal-backdrop"
+                type="button"
+                aria-label="Close report preview"
+                data-close-report-modal
+            ></button>
+
+            <div class="dna-report-modal-dialog">
+                <div class="dna-report-modal-header">
+                    <h2 id="dna-modal-title">
+                        Dashboard
+                    </h2>
+
+                    <button
+                        class="dna-report-modal-close"
+                        type="button"
+                        aria-label="Close report preview"
+                        data-close-report-modal
+                    >
+                        &times;
+                    </button>
+                </div>
+
+                <div class="dna-report-modal-body">
+                    <img
+                        id="dna-report-modal-image"
+                        src="https://i.postimg.cc/YC2YMqq3/dashboard.png"
+                        alt="Enlarged sample DnA Financial bookkeeping dashboard"
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
         <section class="cta-section">
-            <h2>Not sure which service you need?</h2>
-            <p>Start with a free initial review.</p>
-            <a href="contact.html" class="btn btn-primary">Request a Free Review</a>
+            <h2>
+                Not sure which service you need?
+            </h2>
+
+            <p>
+                Start with a free initial review.
+            </p>
+
+            <a
+                href="contact.html"
+                class="btn btn-primary"
+            >
+                Request a Free Review
+            </a>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
-        <img src="https://i.postimg.cc/kgpbfN8x/navy-logo.png" alt="DnA Financial logo" class="footer-logo" />
+        <img
+            src="https://i.postimg.cc/kgpbfN8x/navy-logo.png"
+            alt="DnA Financial"
+            class="footer-logo"
+        >
 
-        <p>&copy; 2026 DnA Financial. All rights reserved.</p>
+        <p>
+            &copy; 2026 DnA Financial. All rights reserved.
+        </p>
 
-        <nav class="footer-legal" aria-label="Legal">
-            <a href="privacy-policy.html">Privacy Policy</a>
+        <nav
+            class="footer-legal"
+            aria-label="Legal links"
+        >
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
             <span aria-hidden="true">|</span>
-            <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+
+            <a href="terms-and-conditions.html">
+                Terms &amp; Conditions
+            </a>
+
+            <span aria-hidden="true">|</span>
+
+            <a href="refund-policy.html">
+                Refund &amp; Cancellation Policy
+            </a>
         </nav>
 
-        <nav class="footer-legal" style="margin-top: 5px;">
-            <a href="refund-policy.html">Refund & Cancellation Policy</a>
-        </nav>
-
-        <p class="footer-note">Bookkeeping and financial record organization services only. Tax, legal, CPA, and financial advisory services are not provided.</p>
+        <p class="footer-note">
+            Bookkeeping and financial record organization services only.
+            Tax, legal, CPA, and financial advisory services are not provided.
+        </p>
     </footer>
 </body>
 </html>

@@ -7,11 +7,18 @@
     --text: #1f2933;
     --muted: #64748b;
     --white: #ffffff;
+    --border: #e5e7eb;
     --shadow: 0 18px 45px rgba(11, 42, 74, 0.12);
 }
 
+/* GLOBAL */
+
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -22,33 +29,43 @@ body {
     line-height: 1.6;
 }
 
+body.dna-modal-open {
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
 a {
     color: inherit;
     text-decoration: none;
 }
 
-/*SITE HEADER*/
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* HEADER */
+
 .site-header {
-    background: var(--white);
-    border-bottom: 1px solid #e5e7eb;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
 }
 
 .navbar {
+    width: min(1180px, calc(100% - 40px));
+    min-height: 88px;
     margin: 0 auto;
-    padding: 18px 20px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1180px;
-}
-
-.logo {
-    color: var(--navy);
-    font-size: 1.4rem;
-    font-weight: 700;
+    gap: 28px;
 }
 
 .logo img {
@@ -61,69 +78,37 @@ a {
 .nav-links {
     margin: 0;
     padding: 0;
-    list-style: none;
+
     display: flex;
     align-items: center;
     gap: 28px;
+
+    list-style: none;
 }
 
 .nav-links a {
     color: var(--navy);
-    font-weight: 600;
+    font-weight: 700;
+}
+
+.nav-links a[aria-current="page"] {
+    color: var(--blue);
 }
 
 .nav-btn {
     padding: 10px 18px;
+    border-radius: 999px;
     background: var(--navy);
     color: var(--white) !important;
-    border-radius: 999px;
 }
 
-/*HERO SECTION*/
-.hero {
-    margin: 0 auto;
-    padding: 90px 20px;
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 50px;
-    align-items: center;
-    max-width: 1180px;
-}
-
-.eyebrow {
-    margin-bottom: 10px;
-    color: var(--blue);
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-}
-
-.hero h1 {
-    margin: 0 0 20px;
-    color: var(--navy);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    line-height: 1.05;
-}
-
-.hero-text {
-    color: var(--muted);
-    font-size: 1.15rem;
-    max-width: 650px;
-}
-
-.hero-buttons {
-    margin-top: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
+/* SHARED BUTTON */
 
 .btn {
-    padding: 14px 24px;
-    font-weight: 700;
-    border-radius: 999px;
     display: inline-block;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-weight: 700;
 }
 
 .btn-primary {
@@ -131,223 +116,517 @@ a {
     color: var(--white);
 }
 
-.btn-secondary {
-    color: var(--navy);
-    border: 2px solid var(--navy);
-}
+/* PAGE HERO */
 
-.hero-card {
-    padding: 30px;
-    background: var(--white);
-    border-radius: 28px;
-    border: 1px solid #e5e7eb;
-    box-shadow: var(--shadow);
-}
-
-.hero-card h3 {
-    margin-top: 0;
-    color: var(--navy);
-}
-
-.metric {
-    padding: 16px 0;
-    border-bottom: 1px solid #e5e7eb;
-    display: flex;
-    justify-content: space-between;
-}
-
-.metric strong {
-    color: var(--navy);
-}
-
-.metric.profit strong {
-    color: var(--blue);
-}
-
-/* TRUST STRIP */
-.trust-strip {
-    padding: 22px 20px;
-    background: var(--navy);
-    color: var(--white);
-    text-align: center;
-    font-weight: 700;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-/* SERVICES */
-.section {
+.page-hero {
+    width: min(1180px, calc(100% - 40px));
     margin: 0 auto;
-    padding: 85px 20px;
-    max-width: 1180px;
+    padding: 86px 0 48px;
 }
 
-.section-heading {
-    margin-bottom: 40px;
+.eyebrow,
+.dna-report-eyebrow {
+    margin: 0 0 12px;
+    color: var(--blue);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.page-hero h1 {
+    max-width: 900px;
+    margin: 0 0 20px;
+
+    color: var(--navy);
+    font-size: clamp(2.45rem, 5vw, 4rem);
+    line-height: 1.08;
+}
+
+.page-hero > p:last-child {
     max-width: 760px;
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 1.1rem;
 }
 
-.cards {
+/* SERVICE CARDS */
+
+.services-section {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 36px 0 88px;
+}
+
+.service-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
+    align-items: stretch;
 }
 
-.card {
-    padding: 28px;
+.service-block {
+    height: 100%;
+    padding: 30px;
+
     background: var(--white);
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border);
     border-radius: 24px;
-    box-shadow: 0 10px 25px rgba(11, 42, 74, 0.06);
+
+    box-shadow:
+        0 10px 25px rgba(11, 42, 74, 0.06);
 }
 
-.card h3 {
-    margin-top: 0;
+.service-block h2 {
+    margin: 0 0 14px;
+
     color: var(--navy);
+    font-size: 1.45rem;
+    line-height: 1.25;
 }
 
-.card p,
-.card li {
+.service-block p {
+    margin: 0 0 18px;
     color: var(--muted);
 }
 
-.card ul {
-    padding-left: 18px;
+.service-block ul {
+    margin: 0;
+    padding-left: 20px;
 }
 
-/* PRICING */
-.pricing-section {
-    padding: 85px 20px;
-    background: var(--navy);
+.service-block li {
+    margin-bottom: 9px;
+    color: var(--muted);
 }
 
-.pricing-section .section-heading {
-    margin: 0 auto 40px;
-    max-width: 1180px;
+.service-block li:last-child {
+    margin-bottom: 0;
 }
 
-.section-heading.light h2,
-.section-heading.light p {
+/* REPORT SECTION */
+
+.dna-report-section {
+    padding: 90px 20px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(30, 115, 190, 0.12),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #f8fbff 0%,
+            #edf6ff 100%
+        );
+}
+
+.dna-report-container {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 0.82fr)
+        minmax(460px, 1.18fr);
+
+    gap: 64px;
+    align-items: center;
+}
+
+.dna-report-content h2 {
+    max-width: 570px;
+    margin: 0;
+
+    color: var(--navy);
+    font-size: clamp(2rem, 4vw, 3.15rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.dna-report-intro {
+    max-width: 590px;
+    margin: 24px 0 30px;
+
+    color: #44556a;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+/* SAMPLE REPORT HEADING */
+
+.dna-report-sample-heading {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    padding-top: 26px;
+    border-top: 1px solid rgba(11, 42, 74, 0.13);
+}
+
+.dna-report-icon {
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+    background: #e1effd;
+    color: #1765ae;
+}
+
+.dna-report-icon svg {
+    width: 29px;
+    height: 29px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.dna-report-sample-heading h3 {
+    margin: 0 0 5px;
+
+    color: var(--navy);
+    font-size: 1.08rem;
+}
+
+.dna-report-sample-heading p {
+    margin: 0;
+    color: #5c6b7c;
+    line-height: 1.55;
+}
+
+/* REPORT BUTTONS */
+
+.dna-report-tabs {
+    display: grid;
+    gap: 11px;
+    margin-top: 24px;
+}
+
+.dna-report-tab {
+    width: 100%;
+    min-height: 52px;
+
+    padding: 13px 18px;
+
+    border: 1px solid #b9cee2;
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--navy);
+
+    font: inherit;
+    font-weight: 750;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease,
+        color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.dna-report-tab::after {
+    content: "›";
+    float: right;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.dna-report-tab:hover {
+    transform: translateY(-2px);
+    border-color: var(--blue);
+    background: var(--white);
+
+    box-shadow:
+        0 8px 20px rgba(11, 42, 74, 0.09);
+}
+
+.dna-report-tab.active {
+    border-color: #1769b6;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d59a5,
+            var(--blue)
+        );
+
     color: var(--white);
+
+    box-shadow:
+        0 10px 24px rgba(30, 115, 190, 0.23);
 }
 
-.pricing-grid {
-    margin: 0 auto;
-    max-width: 1180px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 18px;
+/* REPORT DETAILS */
+
+.dna-report-disclaimer {
+    margin: 16px 4px 0;
+
+    color: #647487;
+    font-size: 0.87rem;
+    font-style: italic;
+    line-height: 1.6;
 }
 
-.price-card {
-    padding: 24px;
-    background: var(--white);
-    text-align: center;
-    border-radius: 22px;
+.dna-report-includes {
+    margin-top: 28px;
+    padding-top: 26px;
+
+    border-top:
+        1px solid rgba(11, 42, 74, 0.13);
 }
 
-.price-card h3 {
+.dna-report-includes h3 {
+    margin: 0 0 17px;
+
     color: var(--navy);
-}
-
-.price {
-    margin: 10px 0;
-    color: var(--navy);
-    font-size: 2rem;
-    font-weight: 800;
-}
-
-.price span {
-    color: var(--muted);
-    font-size: 0.9rem;
-}
-
-.price-card.featured {
-    outline: 3px solid var(--blue);
-}
-
-.pricing-note {
-    margin: 24px auto 0;
-    color: var(--silver);
-    text-align: center;
-    max-width: 1180px;text-align: center;
-}
-
-/*HOW IT WORKS */
-.section-heading h2 {
-    margin: 0 0 14px;
-    color: var(--navy);
-    font-size: clamp(2rem, 3vw, 3rem);
-    line-height: 1.15;
-}
-
-.section-heading p {
-    color: var(--muted);
-}
-
-.process-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-}
-
-.process-step {
-    padding: 26px;
-    background: var(--gray);
-    border-radius: 22px;
-}
-
-.process-step span {
-    margin-bottom: 12px;
-    color: var(--blue);
-    font-weight: 800;
-    display: inline-block;
-}
-
-.process-step h3 {
-    margin: 0 0 10px;
-    color: var(--navy);
-}
-
-.process-step p {
-    color: var(--muted);
-}
-
-/* ABOUT SECTION */
-.about-section {
-    padding: 80px 20px;
-    background: var(--light-blue);
-}
-
-.about-inner {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    max-width: 1180px;
-}
-
-.about-card {
-    padding: 34px;
-    background: var(--white);
-    border: 1px solid #e5e7eb;
-    border-radius: 24px;
-    box-shadow: 0 10px 25px rgba(11, 42, 74, 0.06);
-}
-
-.about-card h2 {
-    margin: 0 0 14px;
-    color: var(--navy);
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    line-height: 1.15;
-}
-
-.about-card p {
-    color: var(--muted);
     font-size: 1.05rem;
 }
 
-/* CTA SECTION */
+.dna-report-includes ul {
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    gap: 12px;
+
+    list-style: none;
+}
+
+.dna-report-includes li {
+    position: relative;
+    padding-left: 31px;
+    color: #263c54;
+}
+
+.dna-report-includes li::before {
+    content: "✓";
+
+    position: absolute;
+    top: 2px;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+    background: #1769b6;
+    color: var(--white);
+
+    font-size: 0.72rem;
+    font-weight: 900;
+}
+
+/* REPORT PREVIEW */
+
+.dna-report-preview-label {
+    margin: 0 0 12px;
+
+    color: #52657a;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.dna-report-preview-label strong {
+    color: var(--navy);
+}
+
+.dna-report-preview {
+    position: relative;
+
+    width: 100%;
+    display: block;
+
+    padding: 0;
+    overflow: hidden;
+
+    border: 1px solid rgba(11, 42, 74, 0.12);
+    border-radius: 7px;
+
+    background: var(--white);
+
+    box-shadow:
+        0 22px 60px rgba(11, 42, 74, 0.18),
+        0 5px 15px rgba(11, 42, 74, 0.09);
+
+    cursor: zoom-in;
+}
+
+.dna-report-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    transition:
+        opacity 180ms ease,
+        transform 300ms ease;
+}
+
+.dna-report-preview:hover img {
+    transform: scale(1.012);
+}
+
+.dna-report-preview.is-changing img {
+    opacity: 0.25;
+}
+
+.dna-report-zoom {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+
+    padding: 9px 13px;
+
+    border-radius: 999px;
+
+    background: rgba(11, 42, 74, 0.9);
+    color: var(--white);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    opacity: 0;
+    transform: translateY(5px);
+
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+}
+
+.dna-report-preview:hover .dna-report-zoom,
+.dna-report-preview:focus-visible .dna-report-zoom {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MODAL */
+
+.dna-report-modal[hidden] {
+    display: none;
+}
+
+.dna-report-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: grid;
+    place-items: center;
+
+    padding: 24px;
+}
+
+.dna-report-modal-backdrop {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    border: 0;
+
+    background: rgba(4, 18, 34, 0.82);
+    backdrop-filter: blur(5px);
+
+    cursor: default;
+}
+
+.dna-report-modal-dialog {
+    position: relative;
+    z-index: 1;
+
+    width: min(1150px, 96vw);
+    max-height: 92vh;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+    background: var(--white);
+
+    box-shadow:
+        0 26px 80px rgba(0, 0, 0, 0.4);
+}
+
+.dna-report-modal-header {
+    flex: 0 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+
+    padding: 16px 20px;
+
+    border-bottom: 1px solid #dfe7ef;
+}
+
+.dna-report-modal-header h2 {
+    margin: 0;
+
+    color: var(--navy);
+    font-size: 1.15rem;
+}
+
+.dna-report-modal-close {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+
+    background: #eaf4ff;
+    color: var(--navy);
+
+    font-size: 2rem;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.dna-report-modal-body {
+    overflow: auto;
+    padding: 22px;
+    background: #eef3f8;
+}
+
+.dna-report-modal-body img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    margin: 0 auto;
+
+    background: var(--white);
+
+    box-shadow:
+        0 10px 30px rgba(11, 42, 74, 0.14);
+}
+
+/* CTA */
+
 .cta-section {
     padding: 90px 20px;
     text-align: center;
@@ -355,29 +634,35 @@ a {
 
 .cta-section h2 {
     margin: 0 0 14px;
+
     color: var(--navy);
     font-size: clamp(2rem, 3vw, 3rem);
     line-height: 1.15;
 }
 
 .cta-section p {
-    margin-bottom: 28px;
+    margin: 0 0 28px;
     color: var(--muted);
 }
 
 /* FOOTER */
+
 .footer {
     padding: 30px 20px;
+
     background: #030e1c;
     color: var(--silver);
+
     text-align: center;
     font-size: 0.9rem;
 }
 
 .footer-logo {
-    margin-bottom: 14px;
     width: 180px;
-    max-height: auto;
+    height: auto;
+
+    margin-bottom: 14px;
+
     object-fit: contain;
 }
 
@@ -386,24 +671,18 @@ a {
 }
 
 .footer-legal {
+    margin: 10px 0 14px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
-    margin: 10px 0 14px;
-}
-
-.footer-legal a {
-    color: inherit;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
 }
 
 .footer-legal a:hover,
 .footer-legal a:focus {
     text-decoration: underline;
-    opacity: 0.8;
 }
 
 .footer-legal span {
@@ -414,208 +693,108 @@ a {
     font-size: 0.75rem;
 }
 
-/* SERVICE PAGE */
-/*hero section*/
-.page-hero {
-    margin: 0 auto;
-    padding: 90px 20px 50px;
-    max-width: 1180px;
+/* ACCESSIBILITY */
+
+.dna-report-tab:focus-visible,
+.dna-report-preview:focus-visible,
+.dna-report-modal-close:focus-visible,
+.nav-links a:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid rgba(30, 115, 190, 0.45);
+    outline-offset: 3px;
 }
 
-.page-hero h1 {
-    margin: 0 0 18px;
-    color: var(--navy);
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    line-height: 1.08;
-    max-width: 850px;
-}
-
-.page-hero p {
-    color: var(--muted);
-    font-size: 1.1rem;
-    max-width: 750px;
-}
-
-/*monthly bookkeeping*/
-.service-list {
-    display: grid;
-    gap: 28px;
-}
-
-.service-block {
-    padding: 32px;
-    background: var(--white);
-    border: 1px solid #e5e7eb;
-    border-radius: 24px;
-    box-shadow: 0 10px 25px rgba(11, 42, 74, 0.06);
-}
-
-.service-block h2 {
-    margin-top: 0;
-    color: var(--navy);
-}
-
-.service-block p,
-.service-block li {
-    color: var(--muted);
-}
-
-/* FAQ PAGE */
-.faq-section {
-    max-width: 900px;
-}
-
-.accordion {
-    display: grid;
-    gap: 14px;
-}
-
-.accordion-item {
-    background: var(--white);
-    border: 1px solid #e5e7eb;
-    border-radius: 18px;
-    box-shadow: 0 8px 18px rgba(11, 42, 74, 0.05);
-    overflow: hidden;
-}
-
-.accordion-question {
-    padding: 20px;
-    background: var(--white);
-    color: var(--navy);
-    text-align: left;
-    font-size: 1rem;
-    font-weight: 700;
-    border: 0;
-    width: 100%;
-    cursor: pointer;
-}
-
-.accordion-answer {
-    padding: 0 20px 20px;
-    color: var(--muted);
-    display: none;
-}
-
-.accordion-item.active .accordion-answer {
-    display: block;
-}
-
-/* CONTACT SECTION */
-.contact-layout {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 36px;
-}
-
-.contact-info,
-.contact-form {
-    padding: 32px;
-    background: var(--white);
-    border: 1px solid #e5e7eb;
-    border-radius: 24px;
-    box-shadow: 0 10px 25px rgba(11, 42, 74, 0.06);
-}
-
-.contact-info h2 {
-    margin-top: 0;
-    color: var(--navy);
-}
-
-.contact-info p {
-    color: var(--muted);
-}
-
-.contact-form {
-    display: grid;
-    gap: 18px;
-}
-
-.contact-form label {
-    color: var(--navy);
-    font-weight: 700;
-    display: grid;
-    gap: 8px;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-    padding: 13px 14px;
-    font: inherit;
-    border: 1px solid #cbd5e1;
-    border-radius: 14px;
-    width: 100%;
-}
-
-.contact-form textarea {
-    resize: vertical;
-}
-
-/* MOBILE RESPONSE */
-@media (max-width: 900px) {
-    .contact-layout {
-        grid-template-columns: 1fr;
-    }
-    .section-watermark {
-        width: 220px;
-        opacity: 0.05;
-    }
-}
-
-@media (max-width: 640px) {
-    .logo img {
-        width: 150px;
-    }
-    .footer-logo {
-        width: 120px;
-    }
-}
+/* TABLET AND SMALLER SCREENS */
 
 @media (max-width: 900px) {
-    .hero,
-    .about-section {
+    .service-list {
         grid-template-columns: 1fr;
     }
-    .cards,
-    .process-grid {
-        grid-template-columns: 1fr 1fr;
+
+    .dna-report-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
     }
-    .pricing-grid,
-    .trust-strip {
-        grid-template-columns: 1fr 1fr;
+
+    .dna-report-content {
+        max-width: 700px;
+    }
+
+    .dna-report-preview-label {
+        text-align: left;
     }
 }
+
+/* MOBILE */
 
 @media (max-width: 640px) {
     .navbar {
-        flex-direction: column;
-        gap: 16px;
-    }
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-    }
-    .hero {
-        padding: 60px 20px;
-    }
-    .cards,
-    .process-grid,
-    .pricing-grid,
-    .trust-strip {
-        grid-template-columns: 1fr;
-    }
-    .hero-buttons {
-        flex-direction: column;
-    }
-    .btn {
-        text-align: center;
-    }
-}
+        width: min(100% - 32px, 1180px);
+        min-height: auto;
 
-@media (max-width: 900px) {
-    .about-inner {
-        grid-template-columns: 1fr;
+        padding: 16px 0;
+
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .logo img {
+        width: 150px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .page-hero {
+        width: min(100% - 36px, 1180px);
+        padding: 60px 0 38px;
+    }
+
+    .services-section {
+        width: min(100% - 36px, 1180px);
+        padding: 24px 0 65px;
+    }
+
+    .service-block {
+        padding: 25px;
+    }
+
+    .dna-report-section {
+        padding: 65px 18px;
+    }
+
+    .dna-report-sample-heading {
+        align-items: flex-start;
+    }
+
+    .dna-report-icon {
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+    }
+
+    .dna-report-zoom {
+        display: none;
+    }
+
+    .dna-report-modal {
+        padding: 10px;
+    }
+
+    .dna-report-modal-dialog {
+        width: 100%;
+        max-height: 96vh;
+    }
+
+    .dna-report-modal-body {
+        padding: 10px;
+    }
+
+    .footer-logo {
+        width: 120px;
     }
 }
 
@@ -627,5 +806,19 @@ a {
 
     .footer-legal span {
         display: none;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .dna-report-tab,
+    .dna-report-preview img,
+    .dna-report-zoom {
+        transition: none;
     }
 }
