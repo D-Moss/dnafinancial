@@ -1,0 +1,440 @@
+/* ======= PAGE HERO ======= */
+.page-hero {
+    margin: 0 auto;
+    padding: 86px 0 48px;
+    width: min(1180px, calc(100% - 40px));
+}
+
+.eyebrow,
+.dna-report-eyebrow {
+    margin: 0 0 12px;
+    color: var(--blue);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.page-hero h1 {
+    margin: 0 0 20px;
+    color: var(--navy);
+    font-size: clamp(2.45rem, 5vw, 4rem);
+    line-height: 1.08;
+    max-width: 900px;
+}
+
+.page-hero > p:last-child {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 760px;
+}
+
+/* ======= SERVICE CARDS ======= */
+.services-section {
+    margin: 0 auto;
+    padding: 36px 0 88px;
+    width: min(1180px, calc(100% - 40px));
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.service-block {
+    padding: 30px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow:
+        0 10px 25px rgba(11, 42, 74, 0.06);
+    height: 100%;
+}
+
+.service-block h2 {
+    margin: 0 0 14px;
+    color: var(--navy);
+    font-size: 1.45rem;
+    line-height: 1.25;
+}
+
+.service-block p {
+    margin: 0 0 18px;
+    color: var(--muted);
+}
+
+.service-block ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.service-block li {
+    margin-bottom: 9px;
+    color: var(--muted);
+}
+
+.service-block li:last-child {
+    margin-bottom: 0;
+}
+
+/* REPORT SECTION */
+.dna-report-section {
+    padding: 90px 20px;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(30, 115, 190, 0.12),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #f8fbff 0%,
+            #edf6ff 100%
+        );
+}
+
+.dna-report-container {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns:
+        minmax(0, 0.82fr)
+        minmax(460px, 1.18fr);
+    gap: 64px;
+    align-items: center;
+}
+
+.dna-report-content h2 {
+    max-width: 570px;
+    margin: 0;
+    color: var(--navy);
+    font-size: clamp(2rem, 4vw, 3.15rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.dna-report-intro {
+    max-width: 590px;
+    margin: 24px 0 30px;
+    color: #44556a;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+/* SAMPLE REPORT HEADING */
+.dna-report-sample-heading {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(11, 42, 74, 0.13);
+}
+
+.dna-report-icon {
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #e1effd;
+    color: #1765ae;
+}
+
+.dna-report-icon svg {
+    width: 29px;
+    height: 29px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.dna-report-sample-heading h3 {
+    margin: 0 0 5px;
+    color: var(--navy);
+    font-size: 1.08rem;
+}
+
+.dna-report-sample-heading p {
+    margin: 0;
+    color: #5c6b7c;
+    line-height: 1.55;
+}
+
+/* REPORT BUTTONS */
+.dna-report-tabs {
+    display: grid;
+    gap: 11px;
+    margin-top: 24px;
+}
+
+.dna-report-tab {
+    width: 100%;
+    min-height: 52px;
+    padding: 13px 18px;
+    border: 1px solid #b9cee2;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--navy);
+    font: inherit;
+    font-weight: 750;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease,
+        color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.dna-report-tab::after {
+    content: "›";
+    float: right;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.dna-report-tab:hover {
+    transform: translateY(-2px);
+    border-color: var(--blue);
+    background: var(--white);
+    box-shadow:
+        0 8px 20px rgba(11, 42, 74, 0.09);
+}
+
+.dna-report-tab.active {
+    border-color: #1769b6;
+    background:
+        linear-gradient(
+            135deg,
+            #0d59a5,
+            var(--blue)
+        );
+    color: var(--white);
+    box-shadow:
+        0 10px 24px rgba(30, 115, 190, 0.23);
+}
+
+/* REPORT DETAILS */
+.dna-report-disclaimer {
+    margin: 16px 4px 0;
+    color: #647487;
+    font-size: 0.87rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.dna-report-includes {
+    margin-top: 28px;
+    padding-top: 26px;
+    border-top:
+        1px solid rgba(11, 42, 74, 0.13);
+}
+
+.dna-report-includes h3 {
+    margin: 0 0 17px;
+    color: var(--navy);
+    font-size: 1.05rem;
+}
+
+.dna-report-includes ul {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+    list-style: none;
+}
+
+.dna-report-includes li {
+    position: relative;
+    padding-left: 31px;
+    color: #263c54;
+}
+
+.dna-report-includes li::before {
+    content: "✓";
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #1769b6;
+    color: var(--white);
+    font-size: 0.72rem;
+    font-weight: 900;
+}
+
+/* REPORT PREVIEW */
+
+.dna-report-preview-label {
+    margin: 0 0 12px;
+    color: #52657a;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.dna-report-preview-label strong {
+    color: var(--navy);
+}
+
+.dna-report-preview {
+    position: relative;
+    width: 100%;
+    display: block;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(11, 42, 74, 0.12);
+    border-radius: 7px;
+    background: var(--white);
+    box-shadow:
+        0 22px 60px rgba(11, 42, 74, 0.18),
+        0 5px 15px rgba(11, 42, 74, 0.09);
+
+    cursor: zoom-in;
+}
+
+.dna-report-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition:
+        opacity 180ms ease,
+        transform 300ms ease;
+}
+
+.dna-report-preview:hover img {
+    transform: scale(1.012);
+}
+
+.dna-report-preview.is-changing img {
+    opacity: 0.25;
+}
+
+.dna-report-zoom {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    padding: 9px 13px;
+    border-radius: 999px;
+    background: rgba(11, 42, 74, 0.9);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(5px);
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+}
+
+.dna-report-preview:hover .dna-report-zoom,
+.dna-report-preview:focus-visible .dna-report-zoom {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MODAL */
+.dna-report-modal[hidden] {
+    display: none;
+}
+
+.dna-report-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.dna-report-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: rgba(4, 18, 34, 0.82);
+    backdrop-filter: blur(5px);
+    cursor: default;
+}
+
+.dna-report-modal-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(1150px, 96vw);
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow:
+        0 26px 80px rgba(0, 0, 0, 0.4);
+}
+
+.dna-report-modal-header {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 16px 20px;
+    border-bottom: 1px solid #dfe7ef;
+}
+
+.dna-report-modal-header h2 {
+    margin: 0;
+    color: var(--navy);
+    font-size: 1.15rem;
+}
+
+.dna-report-modal-close {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #eaf4ff;
+    color: var(--navy);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.dna-report-modal-body {
+    overflow: auto;
+    padding: 22px;
+    background: #eef3f8;
+}
+
+.dna-report-modal-body img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow:
+        0 10px 30px rgba(11, 42, 74, 0.14);
+}
+
+/* ACCESSIBILITY */
+.dna-report-tab:focus-visible,
+.dna-report-preview:focus-visible,
+.dna-report-modal-close:focus-visible,
+.nav-links a:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid rgba(30, 115, 190, 0.45);
+    outline-offset: 3px;
+}
