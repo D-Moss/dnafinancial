@@ -232,60 +232,135 @@ button, a {
 
 /* PRICING */
 .pricing-section {
-    padding: 85px 20px;
+    padding: 85px 20px 90px;
     background: var(--navy);
 }
 
 .pricing-section .section-heading {
-    margin: 0 auto 40px;
+    margin: 0 auto 42px;
     max-width: 1180px;
 }
 
-.section-heading.light h2,
-.section-heading.light p {
+.pricing-section .section-heading .eyebrow {
+    color: #8fc9ff;
+}
+
+.section-heading.light h2 {
+    margin: 0 0 12px;
     color: var(--white);
 }
 
+.section-heading.light p:not(.eyebrow) {
+    margin: 0;
+    color: #d7e3ef;
+}
+
+/*Princing Grid*/
 .pricing-grid {
     margin: 0 auto;
     max-width: 1180px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 18px;
+    align-items: stretch;
 }
 
+/* Individual Card */
 .price-card {
-    padding: 24px;
+    position: relative;
+    min-height: 290px;
+    padding: 28px 20px 26px;
     background: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
     text-align: center;
-    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.price-card h3 {
-    color: var(--navy);
-}
-
-.price {
-    margin: 10px 0;
-    color: var(--navy);
-    font-size: 2rem;
+/* Tier Label */
+.tier-label {
+    margin: 0 0 16px;
+    color: var(--blue);
+    font-size: 0.95rem;
     font-weight: 800;
 }
 
+/* Icon Circle */
+.tier-icon {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 16px;
+    background: var(--light-blue);
+    color: var(--blue);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tier-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* Three-dot Icon */
+.tier-icon-dots {
+    gap: 5px;
+}
+
+.tier-icon-dots span {
+    width: 5px;
+    height: 5px;
+    background: var(--blue);
+    border-radius: 50%;
+}
+
+/* Transaction Range */
+.price-card h3 {
+    margin: 0;
+    color: var(--navy);
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 800;
+}
+
+/* Divider */
+.price-divider {
+    width: 70px;
+    height: 1px;
+    margin: 15px 0 10px;
+    background: var(--silver);
+}
+
+/* Price */
+.price {
+    margin: auto 0 0;
+    color: var(--navy);
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
 .price span {
+    margin-top: 6px;
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    display: block;
 }
 
-.price-card.featured {
-    outline: 3px solid var(--blue);
-}
-
+/* Note Below Pricing */
 .pricing-note {
-    margin: 24px auto 0;
+    margin: 28px auto 0;
+    max-width: 820px;
     color: var(--silver);
     text-align: center;
-    max-width: 1180px;text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 /* HOW IT WORKS */
@@ -515,5 +590,37 @@ button, a {
     .dna-report-preview img,
     .dna-report-zoom {
         transition: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .pricing-section {
+        padding: 65px 18px 70px;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .price-card {
+        min-height: auto;
+        padding: 28px 22px;
+    }
+
+    .price {
+        margin-top: 4px;
     }
 }
